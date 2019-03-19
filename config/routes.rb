@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  get 'fosters/create'
   devise_for :users
   root to: "home#index"
-  resources :pets, only: [:index, :show, :new, :create, :update, :edit]
+  resources :pets, only: [:index, :show, :new, :create, :update, :edit] do
+    resources :fosters, only: [:create]
+  end
   resources :shelters, only: [:index, :show, :new, :create]
   # resources :users, only: [:show, :new, :create]
 
