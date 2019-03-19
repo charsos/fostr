@@ -1,6 +1,10 @@
 <h1>Pets#new</h1>
 <p>Find me in app/views/pets/new.html.erb</p>
 
+
+
+<div class="form-container">
+<div>
 <%= simple_form_for(@pet) do |f| %>
   <!-- [...] -->
   <%= f.input :name %>
@@ -10,3 +14,5 @@
   <%= f.button :submit, class: 'btn btn-primary' %>
   <!-- [...] -->
 <% end %>
+</div>
+</div>
