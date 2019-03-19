@@ -13,7 +13,7 @@ class SheltersController < ApplicationController
 
   def create
     @shelter = Shelter.new(shelter_params)
-    @shelter.user = User.find(params[:user_id])
+    @shelter.user = User.find(params[:shelter][:user_id])
     @shelter.save
     redirect_to shelters_path
   end
