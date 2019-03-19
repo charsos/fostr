@@ -20,7 +20,7 @@ class SheltersController < ApplicationController
 
   private
 
-  def pet_params
-    params.require(:pet).permit(:name, :address, :phone_number)
+  def shelter_params
+    params.require(:shelter).permit(:name, :address, :phone_number, :user_id)
   end
 end

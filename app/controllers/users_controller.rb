@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
   private
 
-  def pet_users
+  def user_params
     params.require(:user).permit(:name, :description, :phone_number, :shelter_owner)
   end
 end
