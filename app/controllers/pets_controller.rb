@@ -6,7 +6,6 @@ class PetsController < ApplicationController
   end
 
   def show
-    @reviews = Review.all
   end
 
   def new
@@ -15,6 +14,7 @@ class PetsController < ApplicationController
 
   def create
     @pet = Pet.new(pet_params)
+    @pet.shelter = Shelter.find(params[:shelter_id])
     @pet.save
     redirect_to pets_path
   end
