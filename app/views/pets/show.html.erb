@@ -16,6 +16,7 @@
               <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
               <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
             </ul>
+            <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
          </div>
        </div>
       <!-- right side of page with photo, foster status and button to initiate foster -->
@@ -26,7 +27,6 @@
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
           <div class="btn btn-info pet-btn">FOSTER ME</div>
-          <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
       </div>
     </div>
   </div>
