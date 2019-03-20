@@ -1,10 +1,12 @@
 class SheltersController < ApplicationController
+  before_action :find_shelter, only: [:show, :edit, :update, :destroy]
+
   def index
     @shelters = Shelter.all
   end
 
   def show
-    @shelter = Shelter.find(params[:id])
+    @pets = @shelter.pets
   end
 
   def new
@@ -18,7 +20,13 @@ class SheltersController < ApplicationController
     redirect_to shelters_path
   end
 
+
+
   private
+
+  def find_shelter
+    @shelter = Shelter.find(params[:id])
+  end
 
   def shelter_params
     params.require(:shelter).permit(:name, :address, :phone_number, :user_id)
