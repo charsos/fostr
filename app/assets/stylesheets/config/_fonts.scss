@@ -4,11 +4,11 @@
 
 @font-face{
 font-family: "Kano";
- src: url('/assets/');
+ src: font-url('Kano.otf');
 }
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
+$body-font: "Kano";
 $headers-font: "Raleway", "Helvetica", "sans-serif";
 
 // To use a font file (.woff) uncomment following lines
