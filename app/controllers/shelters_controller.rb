@@ -6,7 +6,7 @@ class SheltersController < ApplicationController
   end
 
   def show
-    @pets = @shelter.pets
+  @pets = @shelter.pets
   end
 
   def new
