@@ -20,7 +20,7 @@ users_attributes = [
     description: 'Nice guy',
     phone_number: '0134567435',
     shelter_owner: true,
-    email: "jim@gmail.com",
+    email: "daniel@gmail.com",
     password: 'foster',
     password_confirmation: 'foster'
   },
@@ -29,7 +29,7 @@ users_attributes = [
     description: 'Shy girl',
     phone_number: '0634767435',
     shelter_owner: false,
-    email: "jane@gmail.com",
+    email: "clement@gmail.com",
     password: 'foster',
     password_confirmation: 'foster'
   },
@@ -38,7 +38,7 @@ users_attributes = [
     description: 'Mean grandpa',
     phone_number: '0934548692',
     shelter_owner: true,
-    email: "joe@gmail.com",
+    email: "nacho@gmail.com",
     password: 'foster',
     password_confirmation: 'foster'
   }
