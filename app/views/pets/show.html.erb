@@ -20,12 +20,12 @@
       </div>
     </div>
     <!-- right side of page with photo, foster status and button to initiate foster -->
-    <div class="col-4">
-      <div class="container">
+    <div class="col-4 text-center">
+      <div class="container pet-photo">
         <%= cl_image_tag @pet.photo, height: 300, width: 400, crop: :fill %>
       </div>
       <div class="container pet-container"><% @pet.status %></div>
-      <div class="btn pet-btn">FOSTER ME</div>
+      <div class="btn btn-success pet-btn">FOSTER ME</div>
     </div>
   </div>
 </div>
