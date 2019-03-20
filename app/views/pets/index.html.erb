@@ -7,14 +7,11 @@
     <% @pets.each do |pet| %>
     <div class="col-xs-12 col-sm-6 col-md-3">
       <%= link_to "", pet_path(pet), class: 'card-link' %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+       <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
         <%= link_to "", pet_path(pet), class: 'card-link' %>
       <div class="card-description" class ="card-label">
         <%= pet.name %>
-        <%= link_to 'Delete pet', pet_path(@pet),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-      </div> %>
+        <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
       </div>
     </div>
   </div>
