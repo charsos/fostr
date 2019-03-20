@@ -6,16 +6,16 @@
   <div class="row">
     <!-- left side of page with name of pet, their description and details section -->
     <div class="col-8">
-      <div class="container pet-container pet-name"><% @pet.name %></div>
-      <div class="container pet-container pet-description"><% @pet.name %></div>
+      <div class="container pet-container pet-name"><%= @pet.name %></div>
+      <div class="container pet-container pet-description"><%= @pet.name %></div>
       <div class="container pet-container pet-details">
         <ul>
-          <li class="no-bullets"><% @pet.breed %></li>
-          <li class="no-bullets"><% @pet.breed %></li>
-          <li class="no-bullets"><% @pet.size %></li>
-          <li class="no-bullets"><% @pet.age %></li>
-          <li class="no-bullets"><% @pet.activity_level %></li>
-          <li class="no-bullets"><% @pet.sociability %></li>
+          <li class="no-bullets"><%= @pet.breed %></li>
+          <li class="no-bullets"><%= @pet.breed %></li>
+          <li class="no-bullets"><%= @pet.size %></li>
+          <li class="no-bullets"><%= @pet.age %></li>
+          <li class="no-bullets"><%= @pet.activity_level %></li>
+          <li class="no-bullets"><%= @pet.sociability %></li>
         </ul>
       </div>
     </div>
@@ -24,7 +24,7 @@
       <div class="container pet-photo">
         <%= cl_image_tag @pet.photo, height: 300, width: 400, crop: :fill %>
       </div>
-      <div class="container pet-container"><% @pet.status %></div>
+      <div class="container pet-container"><%= @pet.status %></div>
       <div class="btn btn-success pet-btn">FOSTER ME</div>
     </div>
   </div>
