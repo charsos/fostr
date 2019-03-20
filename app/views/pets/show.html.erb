@@ -23,7 +23,7 @@
       <div class="col-4 text-center">
         <div class = "container-photo">
         <div class="pet-photo">
-          <%= cl_image_tag @pet.photo, height: 300, crop: :fill %>
+          <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
           <div class="btn btn-success pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%></div>
