@@ -10,8 +10,8 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    @my_shelters = Shelter.where(user: current_user.id)
     # @shelter = Shelter.find(params[:shelter_id])
-
   end
 
   def create
@@ -28,6 +28,9 @@ class PetsController < ApplicationController
   def edit
   end
 
+  def destroy
+  end
+
   private
 
   def find_pet
@@ -37,5 +40,4 @@ class PetsController < ApplicationController
   def pet_params
     params.require(:pet).permit(:name, :age, :breed, :size, :sociability, :status, :activity_level, :shelter_id, :photo)
   end
-
 end
