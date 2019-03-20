@@ -2,3 +2,5 @@
 <p>Find me in app/views/pets/show.html.erb</p>
 
 <%= cl_image_tag @pet.photo, height: 300, width: 400, crop: :fill %>
+
+<div><%= link_to "Foster this one!", pet_fosters_path(@pet), method: "post" %></div>
