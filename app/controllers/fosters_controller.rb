@@ -1,4 +1,9 @@
 class FostersController < ApplicationController
+
+  def new
+    @foster = Foster.new()
+  end
+
   def create
     @pet = Pet.find(params[:pet_id])
     @foster = Foster.new(pet: @pet, user: current_user)

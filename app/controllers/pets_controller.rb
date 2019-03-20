@@ -15,9 +15,9 @@ class PetsController < ApplicationController
   end
 
   def create
+    raise
     @pet = Pet.new(pet_params)
     @pet.shelter = Shelter.find(params[:pet][:shelter_id])
-
     @pet.save
     redirect_to pets_path
   end
