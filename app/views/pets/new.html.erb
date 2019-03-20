@@ -1,18 +1,17 @@
 <h1>Pets#new</h1>
 <p>Find me in app/views/pets/new.html.erb</p>
 
-
-
 <div class="form-container">
-<div>
-<%= simple_form_for(@pet) do |f| %>
-  <!-- [...] -->
-  <%= f.input :name %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.association :shelter %>
-  <%= f.button :submit, class: 'btn btn-primary' %>
-  <!-- [...] -->
-<% end %>
-</div>
+  <div>
+  <%= simple_form_for(@pet) do |f| %>
+    <!-- [...] -->
+    <%= f.input :name %>
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.association :shelter, collection: @my_shelters %>
+    <!-- f.association :shelter, collection: Shelter.where(user: @user) -->
+    <%= f.button :submit, class: 'btn btn-primary' %>
+    <!-- [...] -->
+  <% end %>
+  </div>
 </div>
