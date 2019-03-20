@@ -6,8 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+Pet.delete_all
+Shelter.delete_all
+
 puts 'Cleaning database...'
-User.destroy_all
+User.delete_all
 
 puts 'Creating users...'
 users_attributes = [
@@ -42,10 +46,10 @@ users_attributes = [
 User.create!(users_attributes)
 puts 'Finished!'
 
-###############
+##############
 
 puts 'Cleaning database...'
-Shelter.destroy_all
+
 
 puts 'Creating shelters...'
 shelters_attributes = [
@@ -68,7 +72,7 @@ puts 'Finished!'
 ###############
 
 puts 'Cleaning database...'
-Pet.destroy_all
+
 
 puts 'Creating pets...'
 pets_attributes = [
@@ -80,7 +84,8 @@ pets_attributes = [
     sociability: 'high',
     status: 'available',
     activity_level: 'high',
-    shelter: Shelter.first
+    shelter: Shelter.first,
+    photo: File.open('app/assets/images/dog1.jpg')
   },
   {
     name: 'Pizza',
@@ -90,7 +95,8 @@ pets_attributes = [
     sociability: 'low',
     status: 'available',
     activity_level: 'low',
-    shelter: Shelter.last
+    shelter: Shelter.last,
+    photo: File.open('app/assets/images/dog2.jpg')
   },
   {
     name: 'Fatty',
@@ -100,7 +106,8 @@ pets_attributes = [
     sociability: 'high',
     status: 'available',
     activity_level: 'medium',
-    shelter: Shelter.last
+    shelter: Shelter.last,
+    photo: File.open('app/assets/images/dog3.jpg')
   }
 ]
 Pet.create!(pets_attributes)
