@@ -5,7 +5,7 @@
     <div class="row">
       <!-- left side of page with name of pet, their description and details section -->
       <div class="col-8">
-        <div class="container pet-container pet-name"><strong><%= @pet.name.upcase %></strong></div>
+        <div class="container pet-name"><strong><%= @pet.name.upcase %></strong></div>
         <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
           <br>
           <div class="container pet-container pet-details">
@@ -20,13 +20,15 @@
        </div>
       <!-- right side of page with photo, foster status and button to initiate foster -->
       <div class="col-4 text-center">
-        <div class="container pet-photo">
-          <%= cl_image_tag @pet.photo, height: 300, width: 400, crop: :fill %>
+        <div class = "container-photo">
+        <div class="pet-photo">
+          <%= cl_image_tag @pet.photo, height: 300, crop: :fill %>
         </div>
-        <div class="container pet-container"><%= @pet.status.capitalize %></div>
-          <div class="btn btn-success pet-btn">FOSTER ME</div>
+          <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
+          <div class="btn btn-info pet-btn">FOSTER ME</div>
       </div>
     </div>
+  </div>
   </div>
 
 
