@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "home#index"
-  resources :pets, only: [:index, :show, :new, :create, :update, :edit]
+  resources :pets
   resources :shelters, only: [:index, :show, :new, :create]
   # resources :users, only: [:show, :new, :create]
+  delete 'pets/:id', to: 'pets#destroy', as: 'delete_pet'
 
 
-  #root to: 'pages#home'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
