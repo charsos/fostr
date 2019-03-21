@@ -20,4 +20,3 @@ class FostersController < ApplicationController
     end
   end
 end
-x
