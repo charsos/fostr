@@ -30,6 +30,7 @@ class PetsController < ApplicationController
 
   def update
     @pet.update(pet_params)
+    authorize @pet
     redirect_to pet_path(@pet)
   end
 
@@ -38,6 +39,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet.destroy
+    authorize @pet
     redirect_to pets_path
   end
 

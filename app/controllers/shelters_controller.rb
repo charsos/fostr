@@ -38,15 +38,6 @@ class SheltersController < ApplicationController
     redirect_to shelters_path
   end
 
-  def update
-  end
-
-  def edit
-  end
-
-  def destroy
-  end
-
   private
 
   def find_shelter
