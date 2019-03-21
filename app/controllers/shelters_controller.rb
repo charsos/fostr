@@ -17,8 +17,9 @@ class SheltersController < ApplicationController
   def create
     @shelter = Shelter.new(shelter_params)
     @shelter.user = current_user
+    current_user.shelter_owner = true
     authorize @shelter
-    if @shelter.save
+    if @shelter.save && current_user.save
       redirect_to shelter_path(@shelter)
     else
       render :new

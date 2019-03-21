@@ -6,7 +6,7 @@ class PetPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    user.shelter_owner
   end
 
   def update?
