@@ -6,7 +6,9 @@
       <!-- left side of page with name of pet, their description and details section -->
       <div class="col-8">
         <div class="title pet-name"><strong><%= @pet.name.upcase %></strong></div>
-          <div class="container pet-container pet-description"></div>
+          <div class="container pet-container pet-description">
+            <li class="no-bullets"><strong>Description: </strong><%=@pet.description %></li>
+          </div>
           <br>
           <div class="container pet-container pet-details">
             <ul>
@@ -49,7 +51,7 @@
           <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
-          <div class="btn btn-success pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%>
+          <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%>
           </div>
           <% if policy(@pet).edit? %>
             <div class="btn edit-btn">
