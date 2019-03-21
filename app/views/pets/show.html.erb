@@ -1,11 +1,11 @@
 <!-- <h1>Pets#show</h1>
   <p>Find me in app/views/pets/show.html.erb</p> -->
 
-  <div class="container">
+  <div class="container page">
     <div class="row">
       <!-- left side of page with name of pet, their description and details section -->
       <div class="col-8">
-        <div class="container pet-name"><strong><%= @pet.name.upcase %></strong></div>
+        <div class="title pet-name"><strong><%= @pet.name.upcase %></strong></div>
         <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
           <br>
           <div class="container pet-container pet-details">
@@ -16,7 +16,6 @@
               <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
               <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
             </ul>
-            <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
          </div>
        </div>
       <!-- right side of page with photo, foster status and button to initiate foster -->

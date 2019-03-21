@@ -2,12 +2,12 @@
   <div class="row">
     <!-- left side of page with name of shelter, description and pet cards -->
     <div class="col-8">
-      <div class="container pet-name"><strong><%= @shelter.name.upcase %></strong></div>
+      <div class="title pet-name"><strong><%= @shelter.name.upcase %></strong></div>
       <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
       <div class="container pet-container pet-details">
       </div>
 
-      <div class="btn btn-primary"><%= link_to "Add a Pet", new_pet_path %></div>
+      <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %></div>
 
    <!--    <div class="container container-headline">
         <h2>Pets currently available at <%= @shelter.name.upcase %></h2>
