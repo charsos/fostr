@@ -49,11 +49,14 @@
           <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
-          <div class="btn btn-success pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%></div>
-          <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
+          <div class="btn btn-success pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%>
+          </div>
+          <% if policy(@pet).edit? %>
+            <div class="btn edit-btn">
+              <%= link_to "Edit", edit_pet_path %>
+            </div>
+          <% end %>
       </div>
     </div>
   </div>
-  </div>
-
-
+</div>
