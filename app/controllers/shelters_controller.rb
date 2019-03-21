@@ -2,7 +2,7 @@ class SheltersController < ApplicationController
   before_action :find_shelter, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shelters = Shelter.all
+    @shelters = policy_scope(Shelter).order(created_at: :desc)
   end
 
   def show
@@ -11,12 +11,15 @@ class SheltersController < ApplicationController
 
   def new
     @shelter = Shelter.new
+    authorize @shelter
   end
 
   def create
     @shelter = Shelter.new(shelter_params)
     @shelter.user = current_user
-    if @shelter.save
+    current_user.shelter_owner = true
+    authorize @shelter
+    if @shelter.save && current_user.save
       redirect_to shelter_path(@shelter)
     else
       render :new
@@ -40,6 +43,7 @@ class SheltersController < ApplicationController
 
   def find_shelter
     @shelter = Shelter.find(params[:id])
+    authorize @shelter
   end
 
   def shelter_params
