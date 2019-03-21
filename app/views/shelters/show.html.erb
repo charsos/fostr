@@ -3,11 +3,13 @@
     <!-- left side of page with name of shelter, description and pet cards -->
     <div class="col-8">
       <div class="title pet-name"><strong><%= @shelter.name.upcase %></strong></div>
-      <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
+      <div class="container pet-container pet-description"><%= @shelter.description %></div>
       <div class="container pet-container pet-details">
       </div>
-
-      <div class="btn btn-info" id="new-pet"><%= link_to "Add a Pet", new_pet_path %></div>
+      <% if policy(@shelter).edit? %>
+        <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
+        </div>
+      <% end %>
 
    <!--    <div class="container container-headline">
         <h2>Pets currently available at <%= @shelter.name.upcase %></h2>
@@ -37,7 +39,7 @@
       <div class = "container-photo">
         <div class="map">
           <!-- INSERT MAP HERE -->
-          <%= image_tag ("demo_map.jpeg"), height: 500, crop: :fill  %>
+          <%= cl_image_tag("sj8fekhzjurk7qniidne", height: 500, crop: :fill) %>
         </div>
       </div>
       <div class='shelter-details'>
@@ -45,7 +47,12 @@
           <li class="no-bullets"><strong>Address: </strong><%=@shelter.address.capitalize %></li>
           <li class="no-bullets"><strong>Phone Number: </strong><%=@shelter.phone_number %></li>
         </ul>
-        <div class="btn edit-btn"><%= link_to "Edit", edit_shelter_path %></div>
+
+        <% if policy(@shelter).edit? %>
+          <div class="btn edit-btn">
+            <%= link_to "Edit", edit_shelter_path(@shelter) %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
