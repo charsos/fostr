@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'fosters/create'
   devise_for :users
-  root to: "home#index"
+  root to: "pets#index"
   resources :shelters
   resources :pets, only: [:index, :show, :new, :create, :update, :edit] do
     resources :fosters, only: [:new, :create]
