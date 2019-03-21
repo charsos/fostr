@@ -1,31 +1,36 @@
 <!-- <h1>Pets#show</h1>
-<p>Find me in app/views/pets/show.html.erb</p> -->
+  <p>Find me in app/views/pets/show.html.erb</p> -->
 
-
-<div class="container">
-  <div class="row">
-    <!-- left side of page with name of pet, their description and details section -->
-    <div class="col-8">
-      <div class="container pet-container pet-name"><%= @pet.name %></div>
-      <div class="container pet-container pet-description"><%= @pet.name %></div>
-      <div class="container pet-container pet-details">
-        <ul>
-          <li class="no-bullets"><%= @pet.breed %></li>
-          <li class="no-bullets"><%= @pet.breed %></li>
-          <li class="no-bullets"><%= @pet.size %></li>
-          <li class="no-bullets"><%= @pet.age %></li>
-          <li class="no-bullets"><%= @pet.activity_level %></li>
-          <li class="no-bullets"><%= @pet.sociability %></li>
-        </ul>
+  <div class="container">
+    <div class="row">
+      <!-- left side of page with name of pet, their description and details section -->
+      <div class="col-8">
+        <div class="container pet-name"><strong><%= @pet.name.upcase %></strong></div>
+        <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
+          <br>
+          <div class="container pet-container pet-details">
+            <ul>
+              <li class="no-bullets"><strong>Breed: </strong><%=@pet.breed.capitalize %></li>
+              <li class="no-bullets"><strong>Size: </strong><%=@pet.size.capitalize %></li>
+              <li class="no-bullets"><strong>Age: </strong><%=@pet.age %></li>
+              <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
+              <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
+            </ul>
+            <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
+         </div>
+       </div>
+      <!-- right side of page with photo, foster status and button to initiate foster -->
+      <div class="col-4 text-center">
+        <div class = "container-photo">
+        <div class="pet-photo">
+          <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
+        </div>
+          <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
+          <div class="btn btn-success pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%></div>
+          <div class="btn edit-btn"><%= link_to "Edit", edit_pet_path %></div>
       </div>
-    </div>
-    <!-- right side of page with photo, foster status and button to initiate foster -->
-    <div class="col-4 text-center">
-      <div class="container pet-photo">
-        <%= cl_image_tag @pet.photo, height: 300, width: 400, crop: :fill %>
-      </div>
-      <div class="container pet-container"><%= @pet.status %></div>
-      <div class="btn btn-success pet-btn">FOSTER ME</div>
     </div>
   </div>
-</div>
+  </div>
+
+

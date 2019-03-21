@@ -1,5 +1,5 @@
 class PetsController < ApplicationController
-  before_action :find_pet, only: [:show, :edit, :update, :destroy]
+  before_action :find_pet, only: [ :show, :update, :edit, :destroy]
 
   def index
     # @pets = Pet.all
@@ -21,17 +21,24 @@ class PetsController < ApplicationController
     @pet.shelter = Shelter.find(params[:pet][:shelter_id])
     @pet.status = "available"
     authorize @pet
-    @pet.save
-    redirect_to pets_path
+    if @pet.save
+      redirect_to pet_path(@pet)
+    else
+      render :new
+    end
   end
 
   def update
+    @pet.update(pet_params)
+    redirect_to pet_path(@pet)
   end
 
   def edit
   end
 
   def destroy
+    @pet.destroy
+    redirect_to pets_path
   end
 
   private

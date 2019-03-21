@@ -6,6 +6,7 @@ class SheltersController < ApplicationController
   end
 
   def show
+  @pets = @shelter.pets
   end
 
   def new
@@ -17,7 +18,23 @@ class SheltersController < ApplicationController
     @shelter = Shelter.new(shelter_params)
     @shelter.user = current_user
     authorize @shelter
-    @shelter.save
+    if @shelter.save
+      redirect_to shelter_path(@shelter)
+    else
+      render :new
+    end
+  end
+
+  def update
+    @shelter.update(shelter_params)
+    redirect_to shelter_path(@shelter)
+  end
+
+  def edit
+  end
+
+  def destroy
+    @shelter.destroy
     redirect_to shelters_path
   end
 
