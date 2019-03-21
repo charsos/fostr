@@ -8,8 +8,8 @@
       </div>
 
       <% if policy(@shelter).edit? %>
-        <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
-        </div>
+      <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
+      </div>
       <% end %>
 
    <!--    <div class="container container-headline">
@@ -34,27 +34,33 @@
 
 
 
-     </div>
-    <!-- right side of page with map, shelter address and contact info -->
-    <div class="col-4 text-center">
-      <div class = "container-photo">
-        <div class="map">
-          <!-- INSERT MAP HERE -->
-          <%= cl_image_tag("sj8fekhzjurk7qniidne", height: 500, crop: :fill) %>
-        </div>
       </div>
-      <div class='shelter-details'>
-        <ul>
-          <li class="no-bullets"><strong>Address: </strong><%=@shelter.address.capitalize %></li>
-          <li class="no-bullets"><strong>Phone Number: </strong><%=@shelter.phone_number %></li>
-        </ul>
+      <!-- right side of page with map, shelter address and contact info -->
+      <div class="col-4 text-center">
+        <div class = "container-photo">
+          <div class="map">
+            <!-- INSERT MAP HERE -->
+            <div
+            id="map"
+            style="width: 100%;
+            height: 500px;"
+            data-markers="<%= @markers.to_json %>"
+            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+            ></div>
+          </div>
+        </div>
+        <div class='shelter-details'>
+          <ul>
+            <li class="no-bullets"><strong>Address: </strong><%=@shelter.address.capitalize %></li>
+            <li class="no-bullets"><strong>Phone Number: </strong><%=@shelter.phone_number %></li>
+          </ul>
 
-        <% if policy(@shelter).edit? %>
+          <% if policy(@shelter).edit? %>
           <div class="btn edit-btn">
             <%= link_to "Edit", edit_shelter_path(@shelter) %>
           </div>
-        <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
-</div>
