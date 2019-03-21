@@ -2,7 +2,6 @@ class FostersController < ApplicationController
 
   def new
     @foster = Foster.new()
-    authorize @foster
   end
 
   def create
