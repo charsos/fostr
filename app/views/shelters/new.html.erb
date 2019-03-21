@@ -1,11 +1,17 @@
-<h1>Shelters#new</h1>
-<p>Find me in app/views/shelters/new.html.erb</p>
-
+<div class = "form-container">
+<div class = "container-headline">
+<h1>Add A New Shelter</h1>
+<div class="inner-form-container">
 <%= simple_form_for(@shelter) do |f| %>
   <!-- [...] -->
   <%= f.input :name %>
+  <%= f.input :description %>
   <%= f.input :address %>
   <%= f.input :phone_number %>
   <%= f.button :submit, class: 'btn btn-primary' %>
   <!-- [...] -->
 <% end %>
+  </div>
+</div>
+</div>
+</div>
