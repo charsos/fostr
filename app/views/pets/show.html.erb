@@ -6,15 +6,39 @@
       <!-- left side of page with name of pet, their description and details section -->
       <div class="col-8">
         <div class="title pet-name"><strong><%= @pet.name.upcase %></strong></div>
-        <!-- <div class="container pet-container pet-description"></div> For Pet Description TBA-->
+          <div class="container pet-container pet-description"></div>
           <br>
           <div class="container pet-container pet-details">
             <ul>
-              <li class="no-bullets"><strong>Breed: </strong><%=@pet.breed.capitalize %></li>
-              <li class="no-bullets"><strong>Size: </strong><%=@pet.size.capitalize %></li>
-              <li class="no-bullets"><strong>Age: </strong><%=@pet.age %></li>
-              <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
-              <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
+              <div class="d-flex justify-content-center">
+                <div class="attributes left-set">
+                  <li class="no-bullets"><strong>Breed: </strong><%=@pet.breed.capitalize %></li>
+                  <li class="no-bullets"><strong>Size: </strong><%=@pet.size.capitalize %></li>
+                  <li class="no-bullets"><strong>Age: </strong><%=@pet.age %></li>
+                  <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
+                </div>
+                <div class="attributes right-set">
+                  <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
+                  <li class="no-bullets"><strong>Good With Kids: </strong>
+                    <%= if @pet.good_with_kids
+                        "Yes"
+                      else
+                        "No"
+                      end %></li>
+                  <li class="no-bullets"><strong>Good With Other Pets: </strong>
+                    <%= if @pet.good_with_other_pets
+                        "Yes"
+                      else
+                        "No"
+                      end %></li>
+                  <li class="no-bullets"><strong>Hypoallergenic: </strong>
+                    <%= if @pet.hypoallergenic
+                        "Yes"
+                      else
+                        "No"
+                      end %></li>
+                </div>
+              </div>
             </ul>
          </div>
        </div>
