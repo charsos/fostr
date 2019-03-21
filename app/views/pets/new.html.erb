@@ -11,11 +11,15 @@
     <%= f.input :age %>
     <%= f.input :activity_level %>
     <%= f.input :sociability %>
+    <%= f.input :hypoallergenic %>
+    <%= f.input :good_with_kids %>
+    <%= f.input :good_with_other_pets %>
     <%= f.input :photo %>
     <%= f.input :photo_cache, as: :hidden %>
+    <%= f.input :description %>
     <%= f.association :shelter, collection: @my_shelters %>
     <!-- f.association :shelter, collection: Shelter.where(user: @user) -->
-    <%= f.button :submit, class: 'btn btn-primary' %>
+    <%= f.button :submit, class: 'btn btn-info' %>
     <!-- [...] -->
   <% end %>
   </div>
