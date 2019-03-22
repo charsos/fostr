@@ -10,14 +10,6 @@
   </div>
 </div>
 
-<%= form_tag pets_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "Search for a pet name, age, breed or availability"
-  %>
-<% end %>
-
 <div class="container">
   <div class="row">
     <% @pets.each do |pet| %>
@@ -32,6 +24,6 @@
     </div>
     <% end %>
   </div>
-  </div>
+ </div>
 
 
