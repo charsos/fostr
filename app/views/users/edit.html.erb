@@ -1,0 +1,53 @@
+<div class='form-container'>
+  <div class='container-headline'>
+      <h1>Edit Account Details</h1>
+      <div class='inner-form-container'>
+        <div class='form-container-arrangement'>
+
+
+          <%= form_for(@user) do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control' %>
+          </div>
+
+           <div class="form-group">
+            <%= f.label :shelter_owner %>
+            <%= f.text_field :shelter_owner, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_field :description, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email %>
+            <%= f.text_field :email, class: 'form-control' %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :phone_number %>
+            <%= f.text_field :phone_number, class: 'form-control' %>
+          </div>
+
+         <!--  <div class="form-group">
+            <%= f.label :photo %>
+            <%= f.text_field :photo, class: 'form-control' %>
+          </div> -->
+
+          <div class='form-group'> <%= f.submit class: 'btn btn-info'%></div>
+
+          <div class='delete-link form-group'><%= link_to 'Delete Account', pets_path,
+          method: :delete,
+          data: { confirm: "Are you sure?" } , class: 'btn btn-info' %>
+        </div>
+
+        <div class='link-back form-group'><%= link_to "Back to Profile", user_path(@user), class: 'btn btn-info' %></div>
+
+        <% end %>
+    </div>
+  </div>
+</div>
+</div>
+
