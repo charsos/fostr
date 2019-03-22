@@ -52,6 +52,11 @@
   }
 }
 
+#my-pet-shelter{
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .container-photo{
   margin: 15px;
   flex-direction: column;
