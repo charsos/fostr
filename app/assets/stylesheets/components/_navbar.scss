@@ -9,6 +9,21 @@
   .nav-link{
     color: white !important;
   }
+
+  >div{
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+
+    form{
+      width: 90%;
+      #query{
+        border-radius: 20px;
+        outline: none;
+        // border: none;
+      }
+    }
+  }
 }
 
 .navbar-lewagon {

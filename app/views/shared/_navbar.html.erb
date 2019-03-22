@@ -1,8 +1,17 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to pets_path, class: "navbar-brand" do %>
-  <!-- using a placeholder image for now - need a logo design -->
-  <%= image_tag "fostr-icon.jpg", alt: "FOSTR", class: "avatar-bordered" %>
-  <% end %>
+  <div>
+    <%= link_to pets_path, class: "navbar-brand" do %>
+    <!-- using a placeholder image for now - need a logo design -->
+    <%= image_tag "fostr-icon.jpg", alt: "FOSTR", class: "avatar-bordered" %>
+    <% end %>
+    <%= form_tag pets_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search for a pet name, age, breed or availability"
+      %>
+    <% end %>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
