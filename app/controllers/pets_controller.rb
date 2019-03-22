@@ -3,7 +3,19 @@ class PetsController < ApplicationController
 
   def index
     # @pets = Pet.all
-    @pets = policy_scope(Pet).order(created_at: :desc)
+    if params[:query].present?
+      # @pets = policy_scope(Pet).where("name ILIKE ?", "%#{params[:query]}%")
+      sql_query = "\
+      name ILIKE :query \
+      OR age::text ILIKE :query \
+      OR status ILIKE :query \
+      OR sociability ILIKE :query \
+      OR breed ILIKE :query \
+      "
+      @pets = policy_scope(Pet).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @pets = policy_scope(Pet).order(created_at: :desc)
+    end
   end
 
   def show

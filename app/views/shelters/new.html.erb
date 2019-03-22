@@ -5,7 +5,7 @@
 <%= simple_form_for(@shelter) do |f| %>
   <!-- [...] -->
   <%= f.input :name %>
-  <%= f.input :address %>
+  <%= f.input :address, id: 'shelter_address' %>
   <%= f.input :phone_number %>
   <%= f.input :description %>
   <%= f.button :submit, class: 'btn btn-info' %>

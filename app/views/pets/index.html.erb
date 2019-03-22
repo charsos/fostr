@@ -1,7 +1,6 @@
 
 
 
-
 <div  style="width: 100%">
    <div class="home-banner" style="background-image: linear-gradient(-90deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.4) 50%), url('<%= image_path 'FOSTR-BANNER.jpg' %>');">
     <div class="banner-content">
@@ -10,6 +9,15 @@
     </div>
   </div>
 </div>
+
+<%= form_tag pets_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search for a pet name, age, breed or availability"
+  %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <% @pets.each do |pet| %>
@@ -25,6 +33,5 @@
     <% end %>
   </div>
   </div>
-</div>
 
 
