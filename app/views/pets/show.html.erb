@@ -6,20 +6,19 @@
       <!-- left side of page with name of pet, their description and details section -->
       <div class="col-8">
         <div class="title pet-name"><strong><%= @pet.name.upcase %></strong></div>
-          <div class="container pet-container pet-description">
-            <li class="no-bullets"><strong>Description: </strong><%=@pet.description %></li>
-          </div>
           <br>
           <div class="container pet-container pet-details">
             <ul>
-              <div class="d-flex justify-content-around">
+              <li class="no-bullets"><strong>Description: </strong><%=@pet.description %></li>
+              <br>
+              <div class="d-flex justify-content-start">
                 <div class="left-set">
                   <li class="no-bullets"><strong>Breed: </strong><%=@pet.breed.capitalize %></li>
                   <li class="no-bullets"><strong>Size: </strong><%=@pet.size.capitalize %></li>
                   <li class="no-bullets"><strong>Age: </strong><%=@pet.age %></li>
                   <li class="no-bullets"><strong>Activity Level: </strong><%=@pet.activity_level.capitalize %></li>
                 </div>
-                <div class="right-set">
+                <div class="right-set" style="margin-left: 80px;">
                   <li class="no-bullets"><strong>Sociability: </strong><%=@pet.sociability.capitalize %></li>
                   <li class="no-bullets"><strong>Good With Kids: </strong>
                     <%= if @pet.good_with_kids
@@ -48,14 +47,15 @@
       <div class="col-4 text-center">
         <div class = "container-photo">
         <div class="pet-photo">
-          <%= cl_image_tag @pet.photo,  :transformation=>[
-          {:width=>500, :height=>500, :gravity=>"face", :crop=>"crop"} ]%>
+          <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
-          <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%></div>
+
+          <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet), class: "link_text"%></div>
+
           <% if policy(@pet).edit? %>
             <div class="btn edit-btn">
-              <%= link_to "Edit", edit_pet_path, class: 'btn btn-info' %>
+              <%= link_to "Edit", edit_pet_path %>
             </div>
           <% end %>
       </div>

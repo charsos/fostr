@@ -1,2 +1,77 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container page">
+  <div class="row">
+
+
+    <!-- left side of page with name of shelter, description and pet cards -->
+    <div class="col-8">
+
+    <!-- top section of left column with name, description, admin status and associated shelters -->
+      <div class="row">
+        <div class="col-12">
+          <div class="title pet-name"><strong><%= @user.name.titleize %></strong></div>
+          <div class="container pet-container pet-description"><%= @user.description.capitalize %></div>
+
+          <!-- <% if @user.admin %>
+            <div class="admin-tag">admin</div>
+          <% end %>
+
+          <% if @user.shelter_owner %>
+            <div class="btn" id="shelter-btn">
+              <% @user.shelters.each do |shelter| %>
+              <%= link_to shelter.name, shelter_path(shelter) %>
+            </div>
+          <% end %>
+          <% end %>
+        -->
+        </div>
+      </div>
+
+      <!-- bottom section of left side: pet cards of pets currently fostered by this user -->
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section">Pets currently being fostered by <%= @user.name.titleize %></h2>
+          <div class="row">
+            <% @user.pets.each do |pet| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= link_to "", pet_path(pet), class: 'card-link' %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+                  <%= link_to "", pet_path(pet), class: 'card-link' %>
+                  <div class="card-description" class ="card-label">
+                    <%= pet.name %>
+                     <!-- <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %> -->
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+
+    <!-- right side of page with map, shelter address and contact info -->
+    <div class="col-4 text-center">
+      <div class = "container-photo">
+        <div class="pet-photo">
+          <%= cl_image_tag @user.photo, height: 500, crop: :fill %>
+        </div>
+      </div>
+      <div class='shelter-details'>
+        <p>Contact</p>
+        <ul>
+          <li class="no-bullets"><strong>Email: </strong><%=@user.email.downcase %></li>
+          <li class="no-bullets"><strong>Phone: </strong><%=@user.phone_number %></li>
+        </ul>
+        <% if policy(@user).edit? %>
+        <div class="btn edit-btn">
+          <%= link_to "Edit Account", edit_user_path(@user) %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
