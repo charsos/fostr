@@ -12,24 +12,24 @@
         </div>
       <% end %>
 
-   <!--    <div class="container container-headline">
+      <div class="container container-headline">
         <h2>Pets currently available at <%= @shelter.name.upcase %></h2>
         <div class="row">
-          <% @pets.each do |pet| %>
-          <div class="col-xs-12 col-sm-6 col-md-3">
-            <%= link_to "", pet_path(pet), class: 'card-link' %>
-             <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+          <% @shelter.pets.each do |pet| %>
+            <div class="col-xs-12 col-sm-6 col-md-3">
               <%= link_to "", pet_path(pet), class: 'card-link' %>
-            <div class="card-description" class ="card-label">
-              <%= pet.name %>
-              <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
+              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+                <%= link_to "", pet_path(pet), class: 'card-link' %>
+                <div class="card-description" class ="card-label">
+                  <%= pet.name %>
+                  <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
+                </div>
+              </div>
             </div>
+            <% end %>
           </div>
         </div>
-        <% end %>
-            </div>
-          </div>
-        </div> -->
+      </div>
 
 
 
