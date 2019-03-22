@@ -47,14 +47,15 @@
       <div class="col-4 text-center">
         <div class = "container-photo">
         <div class="pet-photo">
-          <%= cl_image_tag @pet.photo,  :transformation=>[
-          {:width=>500, :height=>500, :gravity=>"face", :crop=>"crop"} ]%>
+          <%= cl_image_tag @pet.photo, height: 500, crop: :fill %>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
+
           <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet), class: "link_text"%></div>
+
           <% if policy(@pet).edit? %>
             <div class="btn edit-btn">
-              <%= link_to "Edit", edit_pet_path, class: 'btn btn-info' %>
+              <%= link_to "Edit", edit_pet_path %>
             </div>
           <% end %>
       </div>
