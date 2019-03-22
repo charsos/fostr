@@ -6,7 +6,11 @@ class SheltersController < ApplicationController
   end
 
   def show
-  @pets = @shelter.pets
+    @pets = @shelter.pets
+    #@shelter_with_coord = @shelter.where.not(latitude: nil, longitude: nil)
+    if @shelter.latitude
+      @markers = [{lat: @shelter.latitude,lng: @shelter.longitude}]
+    end
   end
 
   def new

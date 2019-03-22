@@ -21,6 +21,10 @@
   box-shadow: 0 10px 30px rgba(0,0,0,.1);
 }
 
+.mapboxgl-canvas {
+  position: relative !important;
+}
+
 .pet-photo {
   border: 1px solid #ddd;
   border-radius: 6px;
