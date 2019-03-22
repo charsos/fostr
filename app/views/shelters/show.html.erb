@@ -56,14 +56,14 @@
         </ul>
 
         <% if policy(@shelter).edit? %>
-        <div class="btn edit-btn">
-          <%= link_to "Edit Shelter", edit_shelter_path(@shelter) %>
+        <div class="btn edit-btn btn-info">
+          <%= link_to "Edit Shelter", edit_shelter_path(@shelter),class: "link_text" %>
         </div>
         <% end %>
 
         <% if policy(@shelter).edit? %>
-        <div class="btn edit-btn" id="new-pet">
-          <%= link_to "Add a Pet", new_pet_path %>
+        <div class="btn edit-btn btn-info" id="new-pet">
+          <%= link_to "Add a Pet", new_pet_path, class: "link_text" %>
         </div>
         <% end %>
 
