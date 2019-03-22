@@ -52,7 +52,7 @@
           {:width=>500, :height=>500, :gravity=>"face", :crop=>"crop"} ]%>
         </div>
           <div class="pet-container"><strong><%= @pet.status.capitalize %></strong></div>
-          <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet)%></div>
+          <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet), class: "link_text"%></div>
           <% if policy(@pet).edit? %>
             <div class="btn edit-btn">
               <%= link_to "Edit", edit_pet_path, class: 'btn btn-info' %>
