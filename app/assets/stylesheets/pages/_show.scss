@@ -1,3 +1,8 @@
+#no-titleize{
+  text-transform: none;
+}
+
+
 .pet-btn {
   color: white !important;
   margin: 10px;
@@ -45,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   padding: 20px;
-  background-color: #fff;
+  // background-color: #fff;
 
   ul{
     padding-left: 0;

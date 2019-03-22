@@ -9,7 +9,7 @@
           <br>
           <div class="container pet-container pet-details">
             <ul>
-              <li class="no-bullets"><strong>Description: </strong><%=@pet.description %></li>
+              <li class = "no-bullets" id="no-titleize"><strong>Description: </strong><%=@pet.description%></li>
               <br>
               <div class="d-flex justify-content-start">
                 <div class="left-set">
@@ -58,8 +58,8 @@
           <div class="btn btn-info pet-btn"><%= link_to "FOSTER ME", new_pet_foster_path(@pet), class: "link_text"%></div>
 
           <% if policy(@pet).edit? %>
-            <div class="btn edit-btn">
-              <%= link_to "Edit", edit_pet_path %>
+            <div class="btn edit-btn btn-info link_text" id="link_text">
+              <%= link_to "Edit", edit_pet_path, class: "link_text" %>
             </div>
           <% end %>
       </div>
