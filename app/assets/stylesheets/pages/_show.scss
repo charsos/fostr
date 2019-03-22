@@ -41,6 +41,9 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding: 20px;
+  background-color: #fff;
+
 }
 
 
@@ -67,3 +70,15 @@
   margin-left: 60px;
   margin-right: 60px;
 }
+
+.section {
+  font-size: 20px;
+  margin-left: 15px;
+  padding: 15px;
+  text-align: center;
+
+}
+
+// .page {
+//   background-color: #efefef;
+// }

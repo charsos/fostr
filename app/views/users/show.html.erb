@@ -2,18 +2,22 @@
   <div class="row">
     <!-- left side of page with name of shelter, description and pet cards -->
     <div class="col-8">
-      <div class="title pet-name"><strong><%= @user.name.upcase %></strong></div>
-      <div class="container pet-container pet-description"><%= @user.description %></div>
+      <div class="row">
+        <div class="col-12">
+          <div class="title pet-name"><strong><%= @user.name.upcase %></strong></div>
+          <div class="container pet-container pet-description"><%= @user.description %></div>
 
-      <% if @user.admin %>
-        <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
-        </div>
-      <% end %>
+          <% if @user.admin %>
+            <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
+            </div>
+          <% end %>
 
-      <% if @user.shelter_owner %>
-        <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
+          <% if @user.shelter_owner %>
+            <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
+      </div>
 
   <!-- section for pet cards that are currently being fostered/have been fostered by this user -->
    <!--    <div class="container container-headline">
@@ -35,6 +39,27 @@
           </div>
         </div> -->
 
+      <!-- bottom section of left side: pet cards of pets currently available at this shelter -->
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section">Pets currently being fostered by <%= @user.name.titleize %></h2>
+          <div class="row">
+            <% @user.fosters.pets.each do |pet| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
+                <%= link_to "", pet_path(pet), class: 'card-link' %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+                  <%= link_to "", pet_path(pet), class: 'card-link' %>
+                  <div class="card-description" class ="card-label">
+                    <%= pet.name %>
+                     <!-- <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %> -->
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 

@@ -1,65 +1,75 @@
 <div class="container page">
   <div class="row">
+
+
     <!-- left side of page with name of shelter, description and pet cards -->
     <div class="col-8">
-      <div class="title pet-name"><strong><%= @shelter.name.upcase %></strong></div>
-      <div class="container pet-container pet-description"><%= @shelter.description %></div>
-      <div class="container pet-container pet-details">
-      </div>
-      <% if policy(@shelter).edit? %>
-      <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
-      </div>
-      <% end %>
+      <!-- top section of left side: name, description and details -->
+      <div class="row">
+        <div class="col-12">
+          <div class="title pet-name"><strong><%= @shelter.name.upcase %></strong></div>
+          <div class="container pet-container pet-description"><%= @shelter.description %></div>
 
-      <div class="container container-headline">
-        <h2>Pets currently available at <%= @shelter.name.upcase %></h2>
-        <div class="row">
-          <% @shelter.pets.each do |pet| %>
-            <div class="col-xs-12 col-sm-6 col-md-3">
-              <%= link_to "", pet_path(pet), class: 'card-link' %>
-              <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+        </div>
+      </div>
+
+      <!-- bottom section of left side: pet cards of pets currently available at this shelter -->
+      <div class="row">
+        <div class="col-12">
+          <h2 class="section">Pets currently available at <%= @shelter.name.titleize %></h2>
+          <div class="row">
+            <% @shelter.pets.each do |pet| %>
+              <div class="col-xs-12 col-sm-6 col-md-4">
                 <%= link_to "", pet_path(pet), class: 'card-link' %>
-                <div class="card-description" class ="card-label">
-                  <%= pet.name %>
-                  <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %>
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.1)), url('<%= pet.photo.url.nil? ? "placeholder" : cl_image_path(pet.photo.url, width: 400, height: 500, crop: :fill) %>')">
+                  <%= link_to "", pet_path(pet), class: 'card-link' %>
+                  <div class="card-description" class ="card-label">
+                    <%= pet.name %>
+                     <!-- <%= link_to 'Delete pet', pet_path(pet), method: :delete, data: { confirm: "Are you sure?" } %> -->
+                  </div>
                 </div>
               </div>
-            </div>
             <% end %>
           </div>
         </div>
       </div>
+    </div>
 
-
-
-
+    <!-- right side of page with map, shelter address and contact info -->
+    <div class="col-4 text-center">
+      <div class = "container-photo">
+        <div class="map">
+          <!-- INSERT MAP HERE -->
+          <div
+          id="map"
+          style="width: 100%;
+          height: 500px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+          ></div>
+        </div>
       </div>
-      <!-- right side of page with map, shelter address and contact info -->
-      <div class="col-4 text-center">
-        <div class = "container-photo">
-          <div class="map">
-            <!-- INSERT MAP HERE -->
-            <div
-            id="map"
-            style="width: 100%;
-            height: 500px;"
-            data-markers="<%= @markers.to_json %>"
-            data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-            ></div>
-          </div>
-        </div>
-        <div class='shelter-details'>
-          <ul>
-            <li class="no-bullets"><strong>Address: </strong><%=@shelter.address.capitalize %></li>
-            <li class="no-bullets"><strong>Phone Number: </strong><%=@shelter.phone_number %></li>
-          </ul>
+      <div class='shelter-details'>
+        <ul>
+          <li class="no-bullets"><strong>Address: </strong><%=@shelter.address.capitalize %></li>
+          <li class="no-bullets"><strong>Phone Number: </strong><%=@shelter.phone_number %></li>
+        </ul>
 
-          <% if policy(@shelter).edit? %>
-          <div class="btn edit-btn">
-            <%= link_to "Edit", edit_shelter_path(@shelter) %>
-          </div>
-          <% end %>
+        <% if policy(@shelter).edit? %>
+        <div class="btn edit-btn">
+          <%= link_to "Edit Shelter", edit_shelter_path(@shelter) %>
         </div>
+        <% end %>
+
+        <% if policy(@shelter).edit? %>
+        <div class="btn edit-btn" id="new-pet">
+          <%= link_to "Add a Pet", new_pet_path %>
+        </div>
+        <% end %>
+
       </div>
     </div>
+
+
   </div>
+</div>
