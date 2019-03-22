@@ -7,8 +7,8 @@
       <div class="container pet-container pet-details">
       </div>
       <% if policy(@shelter).edit? %>
-      <div class="btn btn-primary" id="new-pet"><%= link_to "Add a Pet", new_pet_path %>
-      </div>
+        <div class="btn btn-info" id="new-pet"><%= link_to "Add a Pet", new_pet_path , class: 'btn btn-info' %>
+        </div>
       <% end %>
 
    <!--    <div class="container container-headline">
@@ -56,7 +56,7 @@
 
           <% if policy(@shelter).edit? %>
           <div class="btn edit-btn">
-            <%= link_to "Edit", edit_shelter_path(@shelter) %>
+            <%= link_to "Edit", edit_shelter_path(@shelter) , class: 'btn btn-info' %>
           </div>
           <% end %>
         </div>

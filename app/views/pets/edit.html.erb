@@ -2,7 +2,7 @@
 <div class = "container-headline">
 <h1>Edit Pet</h1>
 <div class='inner-form-container'>
-    <div>
+    <div class='form-container-arrangement'>
 
       <%= form_for(@pet) do |f| %>
         <div class="form-group">
@@ -36,18 +36,41 @@
         </div>
 
         <div class="form-group">
+          <%= f.label :hypoallergenic %>
+          <%= f.text_field :hypoallergenic, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :good_with_kids %>
+          <%= f.text_field :good_with_kids, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :good_with_other_pets %>
+          <%= f.text_field :good_with_other_pets, class: 'form-control' %>
+        </div>
+
+
+        <div class="form-group">
           <%= f.label :photo %>
           <%= f.file_field :photo, class: 'form-control' %>
         </div>
 
-        <%= f.submit class: 'btn btn-primary'%>
+        <div class="form-group">
+          <%= f.label :description  %>
+          <%= f.text_field :description , class: 'form-control' %>
+        </div>
+
+        <div class='form-group'> <%= f.submit class: 'btn btn-info'%></div>
+
+        <div class='delete-link form-group'><%= link_to 'Delete pet', pet_path(@pet),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: 'btn btn-info' %>
+      </div>
+      <div class='link-back form-group'><%= link_to "Back to list", pets_path, class: 'btn btn-info' %></div>
+
       <% end %>
 
-      <div class='delete-link'><%= link_to 'Delete pet', pet_path(@pet),
-        method: :delete,
-        data: { confirm: "Are you sure?" } %>
-      </div>
-      <div class='link-back'><%= link_to "Back to list", pets_path %></div>
   </div>
 </div>
 </div>
