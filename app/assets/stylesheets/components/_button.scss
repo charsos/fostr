@@ -6,3 +6,26 @@
 #btn-text-color{
   color:white !important;
 }
+
+
+
+.link_text{
+  color: white;
+  a{
+    text-decoration: none;
+  }
+}
+
+.btn-info{
+  color:white;
+}
+
+
+.btn{
+  a{
+    &:hover{
+      color: black;
+      text-decoration: none;
+    }
+  }
+}

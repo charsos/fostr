@@ -1,15 +1,16 @@
 
 .home-banner {
-  background-image: url(sazerac.jpg);
+  background-image: url(FOSTR-BANNER.jpg);
   color: white;
   text-align: center;
-  height: 400px;
+  height: 500px;
   /* if you have a 70px navbar => height: calc(100vh - 70px); */
   background-size: cover !important;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 32px;
+  background-position: 0px -105px;
 }
 
 .banner h1 {
