@@ -61,9 +61,17 @@
         </div>
         <% end %>
 
+<<<<<<< HEAD
         <% if policy(@shelter).edit? %>
         <div class="btn edit-btn" id="new-pet">
           <%= link_to "Add a Pet", new_pet_path %>
+=======
+          <% if policy(@shelter).edit? %>
+          <div class="btn edit-btn">
+            <%= link_to "Edit", edit_shelter_path(@shelter) , class: 'btn btn-info' %>
+          </div>
+          <% end %>
+>>>>>>> master
         </div>
         <% end %>
 
