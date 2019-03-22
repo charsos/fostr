@@ -8,6 +8,7 @@ gem 'puma'
 gem 'rails', '5.2.2.1'
 gem 'redis'
 gem 'geocoder'
+gem 'pundit'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

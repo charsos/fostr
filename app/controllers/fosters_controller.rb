@@ -11,9 +11,12 @@ class FostersController < ApplicationController
     day = Date.today.to_s
     @foster.date = day
     @pet.status = "fostered"
+    authorize @foster
     @pet.save
     if @foster.save
       redirect_to pet_path(@foster.pet_id), notice: "You're now fostering this pet"
-    else render @pet end
+    else
+      render @pet
+    end
   end
 end
